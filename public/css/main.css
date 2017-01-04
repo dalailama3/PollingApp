@@ -202,3 +202,15 @@ span {
 	display: inline;
 	margin: 0;
 }
+
+/****** UL Styling ******/
+
+.all-users {
+	background: lightblue;
+	height: 200px;
+}
+
+.all-polls {
+	background: lightgreen;
+	height: 200px;
+}

@@ -1,0 +1,38 @@
+<h1>My Polls</h1>
+<ul>
+   <% polls.forEach(function(poll) { %>
+        <% var pollUrl = '/api/polls/' + poll._id %>
+        <li><a href="<%=pollUrl %>"><%= poll.question %></a></li>
+   
+        
+    <% }); %> 
+</ul>
+
+
+
+    <% polls.forEach(function(poll) { %>
+        <% var hasVotes = [] %>
+
+        <div><%= poll.question %>
+             <% (poll.votes).forEach(function(vote) { %>
+            <li><%= poll.options[vote.idx] %>: <%= vote.count %></li>
+            <% hasVotes.push(vote.idx) %>
+            
+            <% }); %>
+        
+        
+        <% poll.options.forEach(function (option, i) { %>
+            <% if (hasVotes.indexOf(i) === -1) { %>
+                <li><%= poll.options[i] %>: 0</li>
+            <% } %>
+        <% }) %>
+        
+        <% }); %>
+            
+        </div>
+
+    
+ 
+
+   
+

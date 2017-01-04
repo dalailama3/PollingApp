@@ -16,20 +16,15 @@
 	</header>
 
 	<body>
-		<div class="container">
-			<img src="/public/img/clementine_150.png" />
-			<br />
-			<p class="clementine-text">Clementine.js</p>
-		</div>
-	
-		<div class="container">
-			<p>You have clicked the button <span id="click-nbr"></span> times.</p>
-			<br />
-			<div class="btn-container">
-				<button type="submit" class="btn btn-add">CLICK ME!</button>
-				<button class="btn btn-delete">RESET</button>
-			</div>
-		</div>
+		
+		<a class="create-poll" href='/new/poll'>Create a poll!</a>
+		<a class="my-polls" href='/api/mypolls'>See my polls</a>
+		
+		<ul class="all-users">
+			
+		</ul>
+		
+		<ul class="all-polls"></ul>
 		
 		<script type="text/javascript" src="common/ajax-functions.js"></script>
 		<script type="text/javascript" src="controllers/clickController.client.js"></script>

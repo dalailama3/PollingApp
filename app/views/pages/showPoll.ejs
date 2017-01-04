@@ -1,0 +1,63 @@
+
+<% if (locals.votes) { %>
+    <% var hasVotes = [] %>
+
+    <ul>
+         <% (locals.votes).forEach(function(vote) { %>
+            <li><%= options[vote.idx] %>: <%= vote.count %></li>
+            <% hasVotes.push(vote.idx) %>
+        <% }); %>
+        
+        <% options.forEach(function (option, i) { %>
+            <% if (hasVotes.indexOf(i) === -1) { %>
+                <li><%= options[i] %>: 0</li>
+            <% } %>
+        <% }) %>
+    </ul>
+   
+    
+<% } %>
+    <h1>Show me this Poll</h1>
+
+    <p><%= question %></p>
+    
+    
+    
+    <ul>
+        <% options.forEach(function(option) { %>
+            <li><%= option %></li>
+        <% }); %>
+    </ul>
+    
+    <% var url = "polls/" + pollId %>
+    <p>Url: <%= url %></p>
+    
+    <form method="post" action="">
+        <% options.forEach(function(option, idx) { %>
+            <label for="<% option %>"><%= option %></label>
+            <input name="choice" type="radio" id="<% option %>" value="<%=[option, idx] %>"><br>
+        
+            
+           
+        <% }); %>
+        <br>
+        <input type="submit" value="Vote">
+    </form>
+    
+    
+    <form method="post" action=''>
+        <input type="hidden" name="_method" value="PUT">
+        <label for="add-option">Add Option</label>
+        <input name="add-option" id="add-option" type="text">
+        
+        <input type="submit">
+    
+    </form>
+    
+
+
+  
+
+
+
+
