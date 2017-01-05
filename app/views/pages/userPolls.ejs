@@ -1,37 +1,44 @@
-<h1>My Polls</h1>
-<ul>
-   <% polls.forEach(function(poll) { %>
-        <% var pollUrl = '/api/polls/' + poll._id %>
-        <li><a href="<%=pollUrl %>"><%= poll.question %></a></li>
-   
-        
-    <% }); %> 
-</ul>
+<!DOCTYPE html>
 
+<html>
+    <head>
+        <link href="/public/css/main.css" rel="stylesheet" type="text/css">
 
-
-    <% polls.forEach(function(poll) { %>
-        <% var hasVotes = [] %>
-
-        <div><%= poll.question %>
-             <% (poll.votes).forEach(function(vote) { %>
-            <li><%= poll.options[vote.idx] %>: <%= vote.count %></li>
-            <% hasVotes.push(vote.idx) %>
-            
-            <% }); %>
-        
-        
-        <% poll.options.forEach(function (option, i) { %>
-            <% if (hasVotes.indexOf(i) === -1) { %>
-                <li><%= poll.options[i] %>: 0</li>
-            <% } %>
-        <% }) %>
-        
-        <% }); %>
-            
-        </div>
-
+    </head>
+    <body>
+        <h1 class="title">My Polls</h1>
+            <ul class="all-polls">
+               <% polls.forEach(function(poll) { %>
+                    <% var pollUrl = '/api/polls/' + poll._id %>
+                    <li><a href="<%=pollUrl %>"><%= poll.question %></a>
+                        <% var hasVotes = [] %>
     
+                        <ul class="poll-info">
+                        
+                             <% (poll.votes).forEach(function(vote) { %>
+                                <li class="poll-info-li"><%= poll.options[vote.idx] %>: <%= vote.count %></li>
+                                <% hasVotes.push(vote.idx) %>
+                    
+                            <% }); %>
+                
+                
+                            <% poll.options.forEach(function (option, i) { %>
+                                <% if (hasVotes.indexOf(i) === -1) { %>
+                                    <li class="poll-info-li"><%= poll.options[i] %>: 0</li>
+                                <% } %>
+                            <% }) %>
+                        </ul>
+                        
+                    </li>
+                    
+        
+        
+                <% }); %> 
+            </ul>
+    
+    </body>
+</html>
+
  
 
    

@@ -203,7 +203,7 @@ span {
 	margin: 0;
 }
 
-/******* All Polls stylinh ********/
+/******* All Polls styling ********/
 
 ul {
     margin: 0;
@@ -218,7 +218,7 @@ a {
 	text-decoration: none;
 }
 
-.all-polls li {
+.all-polls > li {
 	list-style: none;
 	border: 1px solid black;
     text-align: center;
@@ -227,6 +227,9 @@ a {
     cursor: pointer;
     background: lightgreen;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .all-polls li:hover {
@@ -284,4 +287,24 @@ input[type="text"] {
   appearance: none;
   box-shadow: none;
   border-radius: none;
+}
+
+input[type="radio"] {
+    margin: 20px;
+}
+
+input[type="text"]:focus {
+  box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+}
+
+.poll-info {
+	margin-left: 60px;
+	
+}
+
+.poll-info-li {
+	background: orange;
+	border: 1px solid black;
+    padding: 5px;
+    font-size: 16px;
 }
