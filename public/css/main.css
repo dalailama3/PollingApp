@@ -214,8 +214,6 @@ span {
 ul {
     margin: 0;
     padding: 0;
-    font-size: 20px;
-	background: lightgreen;
 
 }
 
@@ -225,4 +223,14 @@ ul {
     text-align: center;
     padding: 10px;
     font-size: 25px;
+    cursor: pointer;
+    background: lightgreen;
+}
+
+.all-polls li a {
+	text-decoration: none;
+}
+
+.all-polls li:hover {
+	opacity: .6;
 }

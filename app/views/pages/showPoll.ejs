@@ -1,4 +1,9 @@
 
+
+<h1><%= question %></h1>
+
+<a href="/">Home</a>
+    
 <% if (locals.votes) { %>
     <% var hasVotes = [] %>
 
@@ -17,43 +22,39 @@
    
     
 <% } %>
-    <h1>Show me this Poll</h1>
 
-    <p><%= question %></p>
+
+<ul>
+    <% options.forEach(function(option) { %>
+        <li><%= option %></li>
+    <% }); %>
+</ul>
+
+<% var url = "polls/" + pollId %>
+
     
+<form method="post" action="">
+    <% options.forEach(function(option, idx) { %>
+        <label for="<% option %>"><%= option %></label>
+        <input name="choice" type="radio" id="<% option %>" value="<%=[option, idx] %>"><br>
     
-    
-    <ul>
-        <% options.forEach(function(option) { %>
-            <li><%= option %></li>
-        <% }); %>
-    </ul>
-    
-    <% var url = "polls/" + pollId %>
-    <p>Url: <%= url %></p>
-    
-    <form method="post" action="">
-        <% options.forEach(function(option, idx) { %>
-            <label for="<% option %>"><%= option %></label>
-            <input name="choice" type="radio" id="<% option %>" value="<%=[option, idx] %>"><br>
         
-            
-           
-        <% }); %>
-        <br>
-        <input type="submit" value="Vote">
-    </form>
+       
+    <% }); %>
+    <br>
+    <input type="submit" value="Vote">
+</form>
+
     
+<form method="post" action=''>
+    <input type="hidden" name="_method" value="PUT">
+    <label for="add-option">Add Option</label>
+    <input name="add-option" id="add-option" type="text">
     
-    <form method="post" action=''>
-        <input type="hidden" name="_method" value="PUT">
-        <label for="add-option">Add Option</label>
-        <input name="add-option" id="add-option" type="text">
-        
-        <input type="submit">
-    
-    </form>
-    
+    <input type="submit">
+
+</form>
+
 
 
   

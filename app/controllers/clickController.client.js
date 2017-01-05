@@ -26,10 +26,15 @@
       var polls = JSON.parse(data)
       polls.forEach((poll)=> {
          var pollLi = document.createElement("li")
-         pollLi.textContent = poll.question
+         
          var pollLink  = document.createElement("a")
-         pollLink.textContent = "go to poll"
+         pollLi.textContent = poll.question
+         // pollLink.textContent = poll.question
          pollLink.href = "/api/polls/" + poll._id
+         
+         pollLi.addEventListener('click', function () {
+            window.location = "/api/polls/" + poll._id;
+         })
          
          pollLi.appendChild(pollLink)
          pollsUl.appendChild(pollLi)
