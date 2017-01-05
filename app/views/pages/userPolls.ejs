@@ -3,6 +3,7 @@
 <html>
     <head>
         <link href="/public/css/main.css" rel="stylesheet" type="text/css">
+        
 
     </head>
     <body>
@@ -29,6 +30,8 @@
                             <% }) %>
                         </ul>
                         
+                        <button data-url="<%= pollUrl %>" class="delete-poll">Delete</button>
+                        
                     </li>
                     
         
@@ -37,6 +40,9 @@
             </ul>
     
     </body>
+    <script type="text/javascript" src="common/ajax-functions.js"></script>
+    <script type="text/javascript" src="/controllers/pollDelete.client.js"></script>
+
 </html>
 
  
