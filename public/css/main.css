@@ -203,13 +203,7 @@ span {
 	margin: 0;
 }
 
-/****** UL Styling ******/
-
-.all-users {
-
-}
-
-
+/******* All Polls stylinh ********/
 
 ul {
     margin: 0;
@@ -225,6 +219,7 @@ ul {
     font-size: 25px;
     cursor: pointer;
     background: lightgreen;
+    font-weight: bold;
 }
 
 .all-polls li a {
@@ -233,4 +228,45 @@ ul {
 
 .all-polls li:hover {
 	opacity: .6;
+}
+
+.poll-actions {
+	display: flex;
+	background: gray;
+	justify-content: center;
+	margin: 10px;
+}
+
+.poll-actions a {
+	margin: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.poll-actions a:hover {
+	color: green;
+}
+
+/**** Show Poll Styling *********/
+
+.title {
+	text-align: center;
+	font-size: 40px;
+}
+
+.poll-choices {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightgray;
+}
+
+.poll-choices input {
+	margin: 20px;
+}
+
+.poll-choices label {
+	font-size: 20px;
 }
