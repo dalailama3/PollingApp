@@ -1,12 +1,24 @@
-<h1>Create a Poll</h1>
 
-<form method="POST" action='/new/poll'>
-    <label for="pollname">Poll Question</label>
-    <input id="pollname" name="question" type="text">
-    
-    <label for="options">Options, enter options separated by commas</label>
-    <input id="options" name="options" type="text">
-    
-    <input type="submit">
-</form>
+<!DOCTYPE html>
+<html>
+    <head>
+    	<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        
+        <h1 class="title">Create a Poll</h1>
+        
+        <form class="poll-choices" method="POST" action='/new/poll'>
+            <label for="pollname">Poll Question</label>
+            <input class="style-4" id="pollname" name="question" type="text">
+            
+            <label for="options">Options, enter options separated by commas</label>
+            <input class="style-4" id="options" name="options" type="text">
+            
+            <input type="submit">
+        </form>
+
+        
+    </body>    
+</html>
 

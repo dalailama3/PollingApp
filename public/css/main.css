@@ -208,7 +208,14 @@ span {
 ul {
     margin: 0;
     padding: 0;
+}
 
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
 }
 
 .all-polls li {
@@ -220,10 +227,6 @@ ul {
     cursor: pointer;
     background: lightgreen;
     font-weight: bold;
-}
-
-.all-polls li a {
-	text-decoration: none;
 }
 
 .all-polls li:hover {
@@ -263,10 +266,22 @@ ul {
     background: lightgray;
 }
 
-.poll-choices input {
-	margin: 20px;
-}
 
 .poll-choices label {
 	font-size: 20px;
+}
+
+.home-link {
+	margin-bottom: 10px;
+}
+
+input[type="text"] {
+  display: block;
+  margin: 5px;
+  width: 20%;
+  font-family: 'Roboto';
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
 }

@@ -35,7 +35,7 @@ module.exports = function (app, passport) {
 	app.route('/api/polls/:id')
 		.put(isLoggedIn, clickHandler.editPoll)
 		.get(clickHandler.showPoll)
-		.post(isLoggedIn, clickHandler.votePoll)
+		.post(clickHandler.votePoll)
 		
 	
 
