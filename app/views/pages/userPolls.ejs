@@ -3,7 +3,7 @@
 <html>
     <head>
         <link href="/public/css/main.css" rel="stylesheet" type="text/css">
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 
     </head>
     <body>
@@ -19,6 +19,7 @@
         	    
         	<% } %>
         </header>
+        
         <h1 class="title">My Polls</h1>
             <ul class="all-polls">
                <% polls.forEach(function(poll) { %>
@@ -52,9 +53,10 @@
             </ul>
     
     </body>
+    
+
     <script type="text/javascript" src="/common/ajax-functions.js"></script>
     <script type="text/javascript" src="/controllers/pollDelete.client.js"></script>
-
 </html>
 
  

@@ -1,10 +1,7 @@
 'use strict';
 
-
 (function () {
-    
     var deleteButtons = document.querySelectorAll('.delete-poll')
-    var apiUrl = appUrl + '/api/mypolls';
 
     
     console.log(deleteButtons)

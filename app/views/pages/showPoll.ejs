@@ -2,6 +2,8 @@
 <html>
 <head>
    	<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+
 </head>
     
 <body>
@@ -24,6 +26,9 @@
     
     
 <% if (locals.votes) { %>
+
+    <canvas id="pollChart"></canvas>
+
     <% var hasVotes = [] %>
 
     <ul>
@@ -44,6 +49,7 @@
 
 
 <% var url = "polls/" + pollId %>
+<div class="hidden" data-id="<%= url %>"></div>
 
     
     <form class="poll-choices" method="post" action="">
@@ -70,8 +76,11 @@
     </form>
     
     <% } %>
-            
+    
 </body>
+<script type="text/javascript" src="/common/ajax-functions.js"></script>
+<script type="text/javascript" src="/controllers/pollChart.client.js"></script>
+
 </html>
     
     

@@ -91,11 +91,28 @@ function ClickHandler () {
 					pollId: req.params.id,
 					question: result.question,
 					options: result.options
+				
 				})
 				
 			})
 		
-	}
+	},
+	
+	this.showPollJson = function (req, res) {
+		Polls 
+			.findOne({'_id': req.params.id})
+			.exec(function (err, result) {
+				if (err) { throw err; }
+				res.json({
+					votes: result.votes,
+					pollId: req.params.id,
+					question: result.question,
+					options: result.options
+				
+				})
+				
+			})
+	},
 	
 	this.votePoll = function (req, res) {
 		

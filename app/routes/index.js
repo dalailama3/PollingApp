@@ -39,7 +39,7 @@ module.exports = function (app, passport) {
 		.delete(isLoggedIn, clickHandler.deletePoll)
 		
 	
-
+	app.get('/api/polls/:id/json', clickHandler.showPollJson)
 	app.post('/new/poll', isLoggedIn, clickHandler.addPoll)
 	
 	app.route('/login')
