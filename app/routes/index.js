@@ -36,6 +36,7 @@ module.exports = function (app, passport) {
 		.put(isLoggedIn, clickHandler.editPoll)
 		.get(clickHandler.showPoll)
 		.post(clickHandler.votePoll)
+		.delete(isLoggedIn, clickHandler.deletePoll)
 		
 	
 

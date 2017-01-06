@@ -3,7 +3,8 @@
 var Users = require('../models/users.js');
 var Polls = require('../models/polls.js');
 
-var mongo = require('mongodb').MongoClient;
+
+var ObjectId = require('mongoose').Types.ObjectId;
 var userPolls = [];
 
 function queryPolls(arr, res, cb) {
@@ -194,6 +195,19 @@ function ClickHandler () {
 			
 		})
 		
+	}
+	
+	this.deletePoll = function (req, res) {
+		Polls.findByIdAndRemove(req.params.id, function (err) {
+			if (err) { throw err }
+			Users.update({'github.id': req.user.github.id}, { $pull: { polls: req.params.id }})
+			.exec(function (err) {
+				if (err) { throw err }
+				res.end()
+			})
+		})
+			
+
 	}
 }
 
