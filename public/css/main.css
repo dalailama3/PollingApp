@@ -318,3 +318,8 @@ input[type="text"]:focus {
 .hidden {
 	display: none;
 }
+
+#pollChart {
+	height: 300px;
+	width: 300px;
+}

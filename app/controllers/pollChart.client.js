@@ -6,14 +6,23 @@
     var url = appUrl + '/api/' + pollUrl + '/json'
     console.log(url)
     
-    function getVoteCountData(votes) {
-        console.log(votes)
-        var arr = [];
-        var sortedVotes = votes.sort(function(a,b) {
-            return a.idx - b.idx
+    function findVote(arr, idx) {
+        var result = 0;
+        arr.forEach((obj)=> {
+            if (idx === obj.idx) {
+                result = obj.count
+            }
         })
-        
-       return sortedVotes.map((obj)=> { return obj.count;} );
+        return result;
+    }
+    function getVoteCountData(options, votes) {
+        var voteCounts = [];
+    
+        options.forEach((option,i)=> {
+            var count = findVote(votes, i)
+            voteCounts.push(count)
+        })
+        return voteCounts;
     }
     
     function randomColorList(length) {
@@ -28,19 +37,9 @@
         var ctx = document.getElementById("pollChart").getContext("2d");
         console.log(data)
         var data = JSON.parse(data);
-        var colors = randomColorList(data.options.length)
-        console.log(colors)
-        var voteData = getVoteCountData(data.votes)
-        var myChart = new Chart(ctx, 
-    {
-        type: 'pie',
-        data: {
-        labels: data.options,
-        datasets: [{
-            label: '# of Votes',
-            data: voteData,
-            backgroundColor: 
-                ["#e41a1c",
+        var voteData = getVoteCountData(data.options,data.votes)
+        console.log(voteData)
+        var presetColors = ["#e41a1c",
                 "#377eb8",
                 "#4daf4a",
                 "#984ea3",
@@ -49,6 +48,23 @@
                 "#a65628",
                 "#f781bf"
                 ]
+                
+        var extras = randomColorList(data.options.length - 8);
+        console.log(extras)
+        
+        if (data.options.length > 8) {
+            presetColors = presetColors.concat(extras);
+        }
+        console.log(presetColors);
+        var myChart = new Chart(ctx, 
+    {
+        type: 'pie',
+        data: {
+        labels: data.options,
+        datasets: [{
+            label: '# of Votes',
+            data: voteData,
+            backgroundColor: presetColors
         }]
         }
     });
