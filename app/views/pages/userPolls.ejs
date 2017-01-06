@@ -7,6 +7,18 @@
 
     </head>
     <body>
+    	<header>
+    	    <a class="menu" href="/">Home</a>
+        	<p>|</p>
+        	
+            <% if (locals.user) { %>
+            	<a class="menu" href="/profile">Profile</a>
+            	<p>|</p>
+            	
+        	    <a class="menu" href="/logout">Logout</a>
+        	    
+        	<% } %>
+        </header>
         <h1 class="title">My Polls</h1>
             <ul class="all-polls">
                <% polls.forEach(function(poll) { %>
@@ -30,7 +42,7 @@
                             <% }) %>
                         </ul>
                         
-                        <button data-url="<%= pollUrl %>" class="delete-poll">Delete</button>
+                        <button data-url="<%= pollUrl %>" class="delete-poll">Remove</button>
                         
                     </li>
                     

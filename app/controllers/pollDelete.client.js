@@ -16,7 +16,7 @@
     }
     
     function callback(data) {
-        window.location.href = '/api/mypolls'
+        window.location.href = '/api/mypolls';
     }
     
     function sendDeleteRequest() {

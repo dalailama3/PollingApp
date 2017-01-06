@@ -5,9 +5,20 @@
 </head>
     
 <body>
-    <nav>
-        <li><a class="home-link" href="/">Home</a></li>
-    </nav>
+ 
+	<header>
+	    <a class="menu" href="/">Home</a>
+    	<p>|</p>
+    	
+        <% if (locals.user) { %>
+        	<a class="menu" href="/profile">Profile</a>
+        	<p>|</p>
+        	
+    	    <a class="menu" href="/logout">Logout</a>
+    	    
+    	<% } %>
+
+    </header>
     <h1 class="title"><%= question %></h1>
 
     
@@ -47,6 +58,7 @@
         <input type="submit" value="Vote">
     </form>
     
+    <% if (locals.user) { %>
         
     <form method="post" action=''>
         <input type="hidden" name="_method" value="PUT">
@@ -57,7 +69,7 @@
     
     </form>
     
-    
+    <% } %>
             
 </body>
 </html>

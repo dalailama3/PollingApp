@@ -27,7 +27,6 @@ header {
 	color: #00BCD4;
 	height: 56px;
 	margin: 0 0 14px 0;
-	text-align: center;
 }
 
 p {
@@ -230,6 +229,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 75%;
+    margin: auto;
 }
 
 .all-polls li:hover {
@@ -299,6 +300,7 @@ input[type="text"]:focus {
 
 .poll-info {
 	margin-left: 60px;
+	margin-right: 60px;
 	
 }
 
@@ -307,4 +309,8 @@ input[type="text"]:focus {
 	border: 1px solid black;
     padding: 5px;
     font-size: 16px;
+}
+
+.lg {
+	font-size: 42px;
 }

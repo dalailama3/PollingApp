@@ -86,6 +86,8 @@ function ClickHandler () {
 			.exec(function (err, result) {
 				if (err) { throw err; }
 				res.render('pages/showPoll', {
+					user: req.user,
+					votes: result.votes,
 					pollId: req.params.id,
 					question: result.question,
 					options: result.options
