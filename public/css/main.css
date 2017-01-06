@@ -319,7 +319,9 @@ input[type="text"]:focus {
 	display: none;
 }
 
-#pollChart {
-	height: 300px;
-	width: 300px;
+.canvas-container {
+	height: 600px;
+	width: 600px;
+	margin: auto;
 }
+

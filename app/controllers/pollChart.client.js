@@ -25,16 +25,21 @@
         return voteCounts;
     }
     
-    function randomColorList(length) {
+    function randomColorList(length, arr) {
         var results = []
         for (var i = 0; i < length; i++) {
-            results.push('#'+(Math.random()*0xFFFFFF<<0).toString(16));
+            if (arr.indexOf('#'+(Math.random()*0xFFFFFF<<0).toString(16)) === -1) {
+                results.push('#'+(Math.random()*0xFFFFFF<<0).toString(16));
+            }
+            
         }
        return results;
     }
     
     function createPollChart(data) {
-        var ctx = document.getElementById("pollChart").getContext("2d");
+        var ctx = document.getElementById("pollChart").getContext("2d")
+        ctx.canvas.width = 300;
+        ctx.canvas.height = 300;
         console.log(data)
         var data = JSON.parse(data);
         var voteData = getVoteCountData(data.options,data.votes)
@@ -49,7 +54,7 @@
                 "#f781bf"
                 ]
                 
-        var extras = randomColorList(data.options.length - 8);
+        var extras = randomColorList(data.options.length - 8, presetColors);
         console.log(extras)
         
         if (data.options.length > 8) {
