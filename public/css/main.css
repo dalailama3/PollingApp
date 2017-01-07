@@ -259,13 +259,14 @@ a {
 
 .title {
 	text-align: center;
-	font-size: 40px;
+	font-size: 50px;
 }
 
 .poll-choices {
     border: 1px solid black;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     background: lightgray;
 }
@@ -281,7 +282,7 @@ a {
 
 input[type="text"] {
   display: block;
-  margin: 5px;
+  margin: 5px 5px 5px 0;
   width: 20%;
   font-family: 'Roboto';
   font-size: 18px;
@@ -291,7 +292,7 @@ input[type="text"] {
 }
 
 input[type="radio"] {
-    margin: 20px;
+    margin: 10px;
 }
 
 input[type="text"]:focus {
@@ -315,13 +316,29 @@ input[type="text"]:focus {
 	font-size: 42px;
 }
 
-.hidden {
+.hidden, .hide {
 	display: none;
 }
 
-.canvas-container {
-	height: 600px;
-	width: 600px;
-	margin: auto;
+
+.content {
+	display: flex;
+	align-items: center;
 }
+
+.form-stuff {
+	width: 50%;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.canvas-container {
+	float: right;
+	height: 500px;
+	width: 500px;
+	
+}
+
+
+
 

@@ -131,6 +131,7 @@ function ClickHandler () {
 				if (poll) {
 				
 					res.render('pages/showPoll', {
+						user: req.user,
 						pollId: req.params.id,
 						question: poll.question,
 						options: poll.options,
@@ -143,6 +144,7 @@ function ClickHandler () {
 							if (err) { throw err }
 							
 							res.render('pages/showPoll', {
+								user: req.user,
 								pollId: req.params.id,
 								question: result.question,
 								options: result.options,
@@ -162,7 +164,9 @@ function ClickHandler () {
 			.exec(function (err, poll) {
 				if (err) { throw err }
 				res.render('pages/showPoll', {
+					user: req.user,
 					pollId: req.params.id,
+					votes: poll.votes,
 					question: poll.question,
 					options: poll.options
 				})

@@ -25,17 +25,55 @@
     <h1 class="title"><%= question %></h1>
 
     
+
+
+<% var url = "polls/" + pollId %>
+<div class="hidden" data-id="<%= url %>"></div>
+
     
-<% if (locals.votes) { %>
+   <div class="content">
+       
+ 
+   <div class="form-stuff">
+        <form class="poll-choices" method="post" action="">
+            <% options.forEach(function(option, idx) { %>
+                <label for="<% option %>"><%= option %></label>
+                <input name="choice" type="radio" id="<% option %>" value="<%=[option, idx] %>"><br>
+            
+                
+               
+            <% }); %>
+            <br>
+            <input type="submit" value="Vote">
+        </form>
+    
+        <% if (locals.user) { %>
+            
+        <form method="post" action=''>
+            <input type="hidden" name="_method" value="PUT">
+            <label for="add-option">Add Option</label>
+            <input name="add-option" id="add-option" type="text">
+            
+            <input type="submit">
+        
+        </form>
+        
+        <% } %>
+   </div> 
+    
+
     <div class="canvas-container">
         <canvas id="pollChart" width="400" height="400"></canvas>
         
     </div>
     
+    </div>
+
+        
+
 
     <% var hasVotes = [] %>
-
-    <ul>
+    <ul class="hide">
          <% (locals.votes).forEach(function(vote) { %>
             <li><%= options[vote.idx] %>: <%= vote.count %></li>
             <% hasVotes.push(vote.idx) %>
@@ -49,37 +87,8 @@
     </ul>
    
     
-<% } %>
 
 
-<% var url = "polls/" + pollId %>
-<div class="hidden" data-id="<%= url %>"></div>
-
-    
-    <form class="poll-choices" method="post" action="">
-        <% options.forEach(function(option, idx) { %>
-            <label for="<% option %>"><%= option %></label>
-            <input name="choice" type="radio" id="<% option %>" value="<%=[option, idx] %>"><br>
-        
-            
-           
-        <% }); %>
-        <br>
-        <input type="submit" value="Vote">
-    </form>
-    
-    <% if (locals.user) { %>
-        
-    <form method="post" action=''>
-        <input type="hidden" name="_method" value="PUT">
-        <label for="add-option">Add Option</label>
-        <input name="add-option" id="add-option" type="text">
-        
-        <input type="submit">
-    
-    </form>
-    
-    <% } %>
     
 </body>
 <script type="text/javascript" src="/common/ajax-functions.js"></script>
